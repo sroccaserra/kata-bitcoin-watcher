@@ -7,4 +7,4 @@ class TestE2E:
     def test_end_to_end(self):
         response = requests.get('http://localhost:5000/')
 
-        assert response.text == 'Can I buy bitcoins ? NO'
+        assert response.status_code == 200
