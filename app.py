@@ -1,12 +1,12 @@
-import requests
 from flask import Flask
 
+from domaine.courtier import Courtier
+from infrastructure.services.bitcoin_api_service import BitcoinApiService
+from infrastructure.services.service_registry import register_service
+from infrastructure.vues.achat_vue import AchatVue
+
 app = Flask(__name__)
-
-
-@app.route("/")
-def hello():
-    response = requests.get('https://api.blockchain.info/stats')
-    market_price_usd = response.json()['market_price_usd']
-    can_i_buy = market_price_usd < 2596.22
-    return "Can I buy bitcoins ? " + ("YES" if can_i_buy else "NO")
+bitcoin_api_service = BitcoinApiService()
+courtier = Courtier(bitcoin_api_service)
+register_service('COURTIER', courtier)
+app.add_url_rule('/', view_func=AchatVue.as_view('achat_vue'))

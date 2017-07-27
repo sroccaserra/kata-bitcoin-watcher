@@ -4,7 +4,7 @@ Savoir si acheter des bitcoins est "intéressant", grâce à un "site Web" (l'ap
 
 ## Objectif du kata
 
-Réfléchir sur comment on teste une rêgle métier indépendamment du programme, puis sur comment on teste un service externe indépendamment du programme.
+Réfléchir sur comment on teste une règle métier indépendamment du programme, puis sur comment on teste un service externe indépendamment du programme.
 
 ## Voir aussi
 
