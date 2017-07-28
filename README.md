@@ -36,7 +36,13 @@ Si on continue dans cette voie, toutes ces notions vont rester mélangées à tr
 
 ## Objectif du kata
 
-Réfléchir sur comment on peut tester / implémenter ces intentions, et pour ça comment on les organiserait autrement. Par exemple, comment tester une règle métier indépendamment du reste du programme, comment tester un service externe indépendamment du reste du programme...
+Réfléchir sur comment on peut tester / implémenter ces intentions, et pour ça comment on les organiserait autrement.
+
+Par exemple, comment tester une règle métier indépendamment du reste du programme, comment tester un service externe indépendamment du reste du programme...
+
+Autrement dit, comment on peut avoir une architecture testable ?
+
+Et une architecture testable implique du code plus facile à changer, et du code plus facile à changer implique du code plus facile à maintenir propre.
 
 
 ## Tech
