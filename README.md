@@ -6,6 +6,10 @@ Savoir si acheter des bitcoins est "intéressant", grâce à un "site Web" (l'ap
 
 Réfléchir sur comment on teste une règle métier indépendamment du programme, puis sur comment on teste un service externe indépendamment du programme.
 
+## Tech
+
+Testé avec Python 3.6.2, et voir le `Makefile` pour plus d'infos.
+
 ## Voir aussi
 
 Inspiré de :

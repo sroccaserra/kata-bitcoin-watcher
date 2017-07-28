@@ -1,9 +1,8 @@
 from domaine.j_autorise_a_acheter import JAutoriseAAcheter
-from domaine.j_obtiens_le_cours_du_bitcoin import JObtiensLeCoursDuBitcoin
 
 
 class Courtier(JAutoriseAAcheter):
-    def __init__(self, bitcoin_api_service: JObtiensLeCoursDuBitcoin):
+    def __init__(self, bitcoin_api_service):
         self.bitcoin_api_service = bitcoin_api_service
 
     def est_ce_que_je_peux_acheter(self):

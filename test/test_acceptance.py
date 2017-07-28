@@ -7,7 +7,7 @@ from infrastructure.vues.achat_vue import AchatVue
 
 class TestAcceptance:
     def test_j_achete_si_le_cours_du_bitcoin_est_bon(self):
-        bitcoin_api_service:JObtiensLeCoursDuBitcoin = Mock(JObtiensLeCoursDuBitcoin)
+        bitcoin_api_service = Mock(JObtiensLeCoursDuBitcoin)
         bitcoin_api_service.recupere_le_cours_actuel_du_bitcoin.return_value = 2000
         courtier = Courtier(bitcoin_api_service)
         achat_vue = AchatVue(courtier)
