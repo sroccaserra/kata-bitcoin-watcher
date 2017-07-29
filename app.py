@@ -1,6 +1,6 @@
 from flask import Flask
 
-from infrastructure.vues.achat_vue import AchatVue
+from infrastructure.vues.achat import achat
 
 app = Flask(__name__)
-app.add_url_rule('/', view_func=AchatVue.as_view('achat_vue'))
+app.register_blueprint(achat)

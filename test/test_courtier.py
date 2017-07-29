@@ -26,7 +26,7 @@ class TestAchatLimites:
 
 class TestIndisponibiliteDuServiceBitcoin:
     def test_si_le_service_bitcoin_n_est_pas_accessible_je_n_achete_pas(self):
-        bitcoin_api_service: JObtiensLeCoursDuBitcoin = Mock(JObtiensLeCoursDuBitcoin)
+        bitcoin_api_service = Mock(JObtiensLeCoursDuBitcoin)
         bitcoin_api_service.recupere_le_cours_actuel_du_bitcoin.side_effect = \
             Exception()
         courtier = Courtier(bitcoin_api_service)
