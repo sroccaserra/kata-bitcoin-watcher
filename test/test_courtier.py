@@ -35,7 +35,7 @@ class TestIndisponibiliteDuServiceBitcoin:
 
 
 def _build_courtier(cours_du_bitcoin):
-    bitcoin_api_service: JObtiensLeCoursDuBitcoin = Mock(JObtiensLeCoursDuBitcoin)
+    bitcoin_api_service = Mock(JObtiensLeCoursDuBitcoin)
     bitcoin_api_service.recupere_le_cours_actuel_du_bitcoin.return_value = cours_du_bitcoin
-    courtier = Courtier(bitcoin_api_service)
-    return courtier
+
+    return Courtier(bitcoin_api_service)

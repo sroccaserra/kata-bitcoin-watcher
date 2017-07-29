@@ -1,7 +1,7 @@
-from domaine.j_autorise_a_acheter import JAutoriseAAcheter
+from domaine.je_presente_la_reponse import JePresenteLaReponse
 
 
-class Courtier(JAutoriseAAcheter):
+class Courtier(JePresenteLaReponse):
     def __init__(self, bitcoin_api_service):
         self.bitcoin_api_service = bitcoin_api_service
 

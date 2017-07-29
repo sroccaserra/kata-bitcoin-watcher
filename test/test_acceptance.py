@@ -2,7 +2,7 @@ from unittest.mock import Mock
 
 from domaine.courtier import Courtier
 from domaine.j_obtiens_le_cours_du_bitcoin import JObtiensLeCoursDuBitcoin
-from infrastructure.vues.achat_vue import AchatVue
+from infrastructure.presentateurs.presentateur import Presentateur
 
 
 class TestAcceptance:
@@ -10,8 +10,8 @@ class TestAcceptance:
         bitcoin_api_service = Mock(JObtiensLeCoursDuBitcoin)
         bitcoin_api_service.recupere_le_cours_actuel_du_bitcoin.return_value = 2000
         courtier = Courtier(bitcoin_api_service)
-        achat_vue = AchatVue(courtier)
+        presentateur = Presentateur(courtier)
 
-        vue = achat_vue.dispatch_request()
+        reponse = presentateur.est_ce_que_je_peux_acheter()
 
-        assert vue == "Can I buy bitcoins ? YES"
+        assert reponse == "Can I buy bitcoins ? YES"

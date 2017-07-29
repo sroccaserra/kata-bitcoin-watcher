@@ -1,12 +1,11 @@
 from flask.views import View
 
-from infrastructure.bootstrap import get_courtier
+from infrastructure.bootstrap import get_presentateur
 
 
 class AchatVue(View):
-    def __init__(self, courtier=None):
-        self.courtier = courtier or get_courtier()
+    def __init__(self, presentateur=None):
+        self.presentateur = presentateur or get_presentateur()
 
     def dispatch_request(self):
-        je_peux_acheter = self.courtier.est_ce_que_je_peux_acheter()
-        return "Can I buy bitcoins ? " + ("YES" if je_peux_acheter else "NO")
+        return self.presentateur.est_ce_que_je_peux_acheter()
