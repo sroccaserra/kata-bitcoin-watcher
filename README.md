@@ -22,7 +22,7 @@ def hello():
     return "Can I buy bitcoins ? " + ("YES" if can_i_buy else "NO")
 ```
 
-Si l'application reste aussi petite, ce code n'est pas forcément un problème.
+Si l'application reste aussi petite (~= 10 lignes de code), ce premier jet n'est pas un problème.
 
 Mais dès que l'application va grossir (au bout de quelques jours), cette approche va poser de plus en plus de problèmes car toutes les intentions sont mélangées :
 
@@ -36,13 +36,13 @@ Si on continue dans cette voie, toutes ces notions vont rester mélangées à tr
 
 ## Objectif du kata
 
-Réfléchir sur comment on peut tester / implémenter ces intentions, et pour ça comment on les organiserait autrement.
+Réfléchir sur comment on peut tester / implémenter / modifier ces intentions indépendammet les unes des autres, et pour ça comment on les organiserait autrement.
 
 Par exemple, comment tester une règle métier indépendamment du reste du programme, comment tester un service externe indépendamment du reste du programme...
 
 Autrement dit, comment on peut avoir une architecture testable ?
 
-Et une architecture testable implique du code plus facile à changer, et du code plus facile à changer implique du code plus facile à maintenir propre.
+Et une architecture testable permet de changer le code plus facilement, et du code plus facile à changer permet de maintenir du code propre plus facilement.
 
 
 ## Tech
