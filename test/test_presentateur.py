@@ -1,11 +1,10 @@
-from unittest import TestCase
 from unittest.mock import Mock
 
 from domaine.courtier import Courtier
-from infrastructure.presentateurs.presentateur import Presentateur
+from infrastructure.api.presentateurs.presentateur import Presentateur
 
 
-class TestPresentateur(TestCase):
+class TestPresentateur:
     def test_je_n_achete_pas_si_le_courtier_n_est_pas_ok(self):
         courtier = Mock(Courtier)
         courtier.est_ce_que_je_peux_acheter.return_value = False

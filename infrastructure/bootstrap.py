@@ -1,7 +1,7 @@
 from flask import g
 
 from domaine.courtier import Courtier
-from infrastructure.presentateurs.presentateur import Presentateur
+from infrastructure.api.presentateurs.presentateur import Presentateur
 from infrastructure.services.bitcoin_api_service import BitcoinApiService
 
 

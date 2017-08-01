@@ -2,7 +2,7 @@ from unittest.mock import Mock
 
 from domaine.courtier import Courtier
 from domaine.j_obtiens_le_cours_du_bitcoin import JObtiensLeCoursDuBitcoin
-from infrastructure.presentateurs.presentateur import Presentateur
+from infrastructure.api.presentateurs.presentateur import Presentateur
 
 
 class TestAcceptance:
