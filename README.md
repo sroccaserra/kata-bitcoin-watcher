@@ -26,7 +26,7 @@ def hello():
     response = requests.get('https://api.blockchain.info/stats')
     market_price_usd = response.json()['market_price_usd']
     can_i_buy = market_price_usd < 2596.22
-    return "Can I buy bitcoins ? " + ("YES" if can_i_buy else "NO")
+    return "<div>Can I buy bitcoins ? " + ("YES" if can_i_buy else "NO") +"</div>"
 ```
 
 Si l'application reste minuscule (~= 10 lignes de code), ce premier jet n'est pas un problème.
@@ -140,3 +140,19 @@ Sur l'architecture, voir aussi :
 Kata faisable dans le même esprit, un poil plus compliqué :
 
 - [Kata Train Reservation](https://github.com/sroccaserra/kata-train-reservation)
+
+## Feedback n° 1
+
+- Comment on justifie la valeur des test, de ce découpage ?
+- Préciser : on ne fait pas 20 couches mais seulement 3
+- Objectif de faire ça ?
+- C'est quoi la limite ?
+- Dessin linéaire => faire plutôt circulaire ?
+- Appuyer plus sur la mise en valeur du métier
+- Exemple métier trop simple ?
+- Bien préciser que ça scale
+- Indiquer "qu'est-ce qui va où" et pourquoi ?
+- Aller plus lentement quand on lit ligne par ligne
+- Challenger l'ordre, commencer par les parties les plus évidentes
+- Utiliser les questions qu'on se pose en le codant, raconter son raisonnement pour expliquer le pourquoi.
+- Des parties du code plus importantes que d'autres
