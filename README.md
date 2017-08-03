@@ -94,7 +94,7 @@ Dans le répertoire infrastructure, on trouve le code :
 
 Le répertoire `infrastructure/api` contient deux choses.
 
-- Un adaptateur ([Presentateur](infrastructure/api/presentateurs/presentateur_html.py)), dans lequel on injecte une classe métier. Le rôle de cet adaptateur et de présenter les données fournies par le métier sous une forme exploitable par le controlleur Web. Ce présentateur est testable indépendamment du framework Web (ici Flask).
+- Un adaptateur ([PresentateurDict](infrastructure/api/presentateurs/presentateur_dict.py)), dans lequel on injecte une classe métier. Le rôle de cet adaptateur et de présenter les données fournies par le métier sous une forme exploitable par le controlleur Web (ici un `dict` facile à transformer en JSON). Ce présentateur est testable indépendamment du framework Web (ici Flask).
 - Un controlleur Web, qui utilise le framework Web et le présentateur pour fournir la fonctionnalité à l'utilisateur final.
 
 Le répertoire `infrastructure/services` contient aussi un adaptateur, qui implémente le port `JObtiensLeCoursDuBitcoin` définit par le domaine. Cet adaptateur requête le service externe, et formate correctement la réponse pour la renvoyer au domaine.
@@ -134,6 +134,7 @@ Fortement inspiré / copié de :
 
 Sur l'architecture, voir aussi :
 
+- [Hexagonal architecture (l'article original)](http://alistair.cockburn.us/Hexagonal+architecture)
 - [L'Après-midi du DDD](https://gist.github.com/sroccaserra/8681ea5fadc6a1dfb3bbeb0e4f6fe395)
 - [Alistair in the 'hexagone'](https://gist.github.com/sroccaserra/d37aa6538696b5d94369ab13fbe3e63b)
 - [Robert C Martin - Clean Architecture and Design (vidéo)](https://www.youtube.com/watch?v=Nsjsiz2A9mg)

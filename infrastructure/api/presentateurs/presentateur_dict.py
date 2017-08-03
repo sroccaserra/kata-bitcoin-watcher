@@ -3,7 +3,7 @@ from typing import Dict, Any
 from domaine.je_presente_la_reponse import JePresenteLaReponse
 
 
-class PresentateurHtml(JePresenteLaReponse):
+class PresentateurDict(JePresenteLaReponse):
     def __init__(self, courtier):
         self.courtier = courtier
 
