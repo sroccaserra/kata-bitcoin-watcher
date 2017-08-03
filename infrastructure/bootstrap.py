@@ -1,8 +1,8 @@
 from flask import g
 
 from domaine.courtier import Courtier
-from infrastructure.api.presentateurs.presentateur_dict import PresentateurDict
-from infrastructure.services.bitcoin_api_service import BitcoinApiService
+from infrastructure.application.presentateurs.presentateur_dict import PresentateurDict
+from infrastructure.services_externes.bitcoin_api_service import BitcoinApiService
 
 
 def get_presentateur():
@@ -14,5 +14,4 @@ def get_presentateur():
 def bootstrap_presentateur():
     bitcoin_api_service = BitcoinApiService()
     courtier = Courtier(bitcoin_api_service)
-    presentateur = PresentateurDict(courtier)
-    return presentateur
+    return PresentateurDict(courtier)

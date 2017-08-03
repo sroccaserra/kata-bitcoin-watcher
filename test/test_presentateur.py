@@ -1,7 +1,7 @@
 from unittest.mock import Mock
 
 from domaine.courtier import Courtier
-from infrastructure.api.presentateurs.presentateur_dict import PresentateurDict
+from infrastructure.application.presentateurs.presentateur_dict import PresentateurDict
 
 
 class TestPresentateurHtml:

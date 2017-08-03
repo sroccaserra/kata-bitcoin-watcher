@@ -11,10 +11,10 @@ lint:
 	@$(FLAKE8) app.py domaine infrastructure test
 
 test_all:
-	$(PYTEST) test
+	@$(PYTEST) test
 
 test_unit:
-	$(PYTEST) -m 'not end_to_end' test
+	@$(PYTEST) -m 'not end_to_end' test
 
 run:
-	FLASK_APP=app.py $(FLASK) run
+	@FLASK_APP=infrastructure/application/app.py $(FLASK) run
