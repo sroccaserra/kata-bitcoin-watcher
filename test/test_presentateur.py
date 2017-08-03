@@ -12,7 +12,7 @@ class TestPresentateurHtml:
 
         reponse = presentateur_html.est_ce_que_je_peux_acheter()
 
-        assert reponse == "<div>Can I buy bitcoins ? NO</div>"
+        assert reponse == {'can_I_buy_bitcoins': False}
 
     def test_j_achete_si_le_courtier_est_ok(self):
         courtier = Mock(Courtier)
@@ -21,4 +21,4 @@ class TestPresentateurHtml:
 
         reponse = presentateur_html.est_ce_que_je_peux_acheter()
 
-        assert reponse == "<div>Can I buy bitcoins ? YES</div>"
+        assert reponse == {'can_I_buy_bitcoins': True}

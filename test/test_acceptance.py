@@ -14,4 +14,4 @@ class TestAcceptance:
 
         reponse = presentateur.est_ce_que_je_peux_acheter()
 
-        assert reponse == "<div>Can I buy bitcoins ? YES</div>"
+        assert reponse == {'can_I_buy_bitcoins': True}

@@ -8,3 +8,4 @@ class TestE2E:
         response = requests.get('http://localhost:5000/')
 
         assert response.status_code == 200
+        assert 'can_I_buy_bitcoins' in response.json()

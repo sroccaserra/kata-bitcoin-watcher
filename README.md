@@ -16,17 +16,18 @@ Savoir si acheter des bitcoins est "intéressant", grâce à un "site Web" (l'ap
 # Fichier : app.py
 
 import requests
-from flask import Flask
+from flask import Flask, jsonify
+
 
 app = Flask(__name__)
 
 
 @app.route("/")
-def hello():
+def home():
     response = requests.get('https://api.blockchain.info/stats')
     market_price_usd = response.json()['market_price_usd']
     can_i_buy = market_price_usd < 2596.22
-    return "<div>Can I buy bitcoins ? " + ("YES" if can_i_buy else "NO") +"</div>"
+    return jsonify({'can_I_buy_bitcoins': can_i_buy})
 ```
 
 Si l'application reste minuscule (~= 10 lignes de code), ce premier jet n'est pas un problème.
