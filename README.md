@@ -93,8 +93,8 @@ Dans le répertoire infrastructure, on trouve le code :
 
 Le répertoire `infrastructure/api` contient deux choses.
 
-- Un adaptateur ([Presentateur](infrastructure/api/presentateurs/presentateur.py)), dans lequel on injecte une classe métier. Le rôle de cet adaptateur et de présenter les données fournies par le métier sous une forme exploitable par la vue Web. Ce présentateur est testable indépendamment du framework Web (ici Flask).
-- Une vue Web, qui utilise le framework Web et le présentateur pour fournir la fonctionnalité à l'utilisateur final.
+- Un adaptateur ([Presentateur](infrastructure/api/presentateurs/presentateur_html.py)), dans lequel on injecte une classe métier. Le rôle de cet adaptateur et de présenter les données fournies par le métier sous une forme exploitable par le controlleur Web. Ce présentateur est testable indépendamment du framework Web (ici Flask).
+- Un controlleur Web, qui utilise le framework Web et le présentateur pour fournir la fonctionnalité à l'utilisateur final.
 
 Le répertoire `infrastructure/services` contient aussi un adaptateur, qui implémente le port `JObtiensLeCoursDuBitcoin` définit par le domaine. Cet adaptateur requête le service externe, et formate correctement la réponse pour la renvoyer au domaine.
 
@@ -103,19 +103,19 @@ Le répertoire `infrastructure/services` contient aussi un adaptateur, qui impl�
 
 Comment on bootstrap tout ça ?
 
-On a vu que pour la définition des classes, la vue et son présentateur dépendent du domaine, et l'adaptateur vers le service extérieur dépend aussi du domaine (car il implémente le port définit dans le domaine).
+On a vu que pour la définition des classes, le controlleur et son présentateur dépendent du domaine, et l'adaptateur vers le service extérieur dépend aussi du domaine (car il implémente le port définit dans le domaine).
 
-Mais pour l'instantiation de ces classes, les différentes injection de dépendances sont dans ce sens : on injecte une instance du service externe dans une instance du domaine. et ensuite, on injecte l'instance du domaine dans le présentateur dont dépend la vue.
+Mais pour l'instantiation de ces classes, les différentes injection de dépendances sont dans ce sens : on injecte une instance du service externe dans une instance du domaine. et ensuite, on injecte l'instance du domaine dans le présentateur dont dépend le controlleur.
 
 Pour résumer, les dépendances (`A -> B` : `A` a besoin d'une définition de `B` pour se définir) sont comme ça :
 
-`vue -> présentateur -> domaine <- service`
+`controlleur -> présentateur -> domaine <- service`
 
 Et l'injection de dépendances (`A -> B` : `A` a besoin d'une instance de `B` pour s'instancier) est comme ça :
 
-`vue -> présentateur -> domaine -> service`
+`controlleur -> présentateur -> domaine -> service`
 
-Donc pour le bootstrap, on instancie d'abord le service, puis le domaine, puis le présentateur et la vue (voir [bootstrap.py](infrastructure/bootstrap.py)). 
+Donc pour le bootstrap, on instancie d'abord le service, puis le domaine, puis le présentateur et le controlleur (voir [bootstrap.py](infrastructure/bootstrap.py)). 
 
 Ce bootstrap se retrouve dans le test d'acceptance ([test_acceptance.py](test/test_acceptance.py)), où on mock le service et on fait l'économie de la route HTTP, mais où tout le reste est instancié et bootstrapé normalement (c'est quasi un test complet, mais qui reste unitaire quand le setup est simple).
 
