@@ -1,5 +1,8 @@
+from domaine.j_obtiens_le_cours_du_bitcoin import JObtiensLeCoursDuBitcoin
+
+
 class Courtier:
-    def __init__(self, bitcoin_api_service):
+    def __init__(self, bitcoin_api_service: JObtiensLeCoursDuBitcoin):
         self.bitcoin_api_service = bitcoin_api_service
 
     def est_ce_que_je_peux_acheter(self) -> bool:

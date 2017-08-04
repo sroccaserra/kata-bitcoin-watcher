@@ -8,7 +8,7 @@ clean:
 	@find . \( -name \*.pyc -o -name \*.pyo -o -name __pycache__ \) -prune -delete
 
 lint:
-	@$(FLAKE8) app.py domaine infrastructure test
+	@$(FLAKE8) domaine infrastructure test
 
 test_all:
 	@$(PYTEST) test
