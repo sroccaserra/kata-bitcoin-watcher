@@ -111,7 +111,7 @@ Comment on bootstrap tout ça ?
 
 On a vu que pour la définition des classes, la Web app et son présentateur dépendent du domaine, et l'adaptateur vers le service extérieur dépend aussi du domaine (car il implémente le port définit dans le domaine).
 
-Mais pour l'instantiation de ces classes, les différentes injection de dépendances sont dans ce sens : on injecte une instance du service externe dans une instance du domaine. et ensuite, on injecte l'instance du domaine dans le présentateur dont dépend notre application Web.
+Mais pour l'instantiation de ces classes, les différentes injection de dépendances sont dans ce sens : on injecte une instance du service externe dans une instance du domaine. Et ensuite, on injecte l'instance du domaine dans le présentateur dont dépend notre application Web.
 
 Pour résumer, les dépendances (`A -> B` : `A` a besoin d'une définition de `B` pour se définir) sont comme ça :
 
@@ -164,3 +164,4 @@ Kata faisable dans le même esprit, un poil plus compliqué :
 - Challenger l'ordre, commencer par les parties les plus évidentes
 - Utiliser les questions qu'on se pose en le codant, raconter son raisonnement pour expliquer le pourquoi.
 - Des parties du code plus importantes que d'autres
+- Autre idée : comment ajouter une nouvelle fonctionnalité, par exemple : "j'achète du bitcoin si c'est moins cher que les dix derniers prix" Alors il faut un historique, comment la structure le permet super facilement, en sachant où on range les choses par oposition au code de départ, où on ne saurait pas où mettre les choses.
