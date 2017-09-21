@@ -9,3 +9,8 @@ app = Flask(__name__)
 def broker():
     reponse_formatee = get_presentateur().est_ce_que_je_peux_acheter()
     return jsonify(reponse_formatee)
+
+
+@app.route('/broker_call_count')
+def broker_call_count():
+    return jsonify(0)

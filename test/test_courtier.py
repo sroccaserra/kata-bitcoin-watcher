@@ -1,3 +1,6 @@
+from unittest.mock import Mock
+
+from domaine.compteur import Compteur
 from domaine.courtier import Courtier
 from test.bitcoin_api_fake_service import BitcoinApiFakeService
 from test.bitcoin_api_unavailable_service import \
@@ -26,12 +29,23 @@ class TestAchatLimites:
 
 class TestIndisponibiliteDuServiceBitcoin:
     def test_si_le_service_bitcoin_n_est_pas_accessible_je_n_achete_pas(self):
+        compteur: Compteur = Mock(Compteur)
         bitcoin_api_service = BitcoinApiUnavailableService()
-        courtier = Courtier(bitcoin_api_service)
+        courtier = Courtier(compteur, bitcoin_api_service)
 
         assert not courtier.est_ce_que_je_peux_acheter()
 
 
+class TestInteractionCompteur:
+    def test_si_l_on_appelle_le_courtier_le_compteur_s_incremente(self):
+        compteur: Compteur = Mock(Compteur)
+        bitcoin_api_service = BitcoinApiFakeService(2000)
+        courtier = Courtier(compteur, bitcoin_api_service)
+        courtier.est_ce_que_je_peux_acheter()
+        compteur.incremente.assert_called()
+
+
 def _build_courtier(cours_du_bitcoin):
+    compteur: Compteur = Mock(Compteur)
     bitcoin_api_service = BitcoinApiFakeService(cours_du_bitcoin)
-    return Courtier(bitcoin_api_service)
+    return Courtier(compteur, bitcoin_api_service)
