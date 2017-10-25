@@ -6,4 +6,4 @@ Règle d'or : tout le code du répertoire `domaine` ne dépend absolument pas du
 
 C'est une règle importante, qui permet de réfléchir au métier indépendamment de tout le reste (réseau, base de données, l'infrastructure au sens large).
 
-Ça perment aussi  de tester entièrement les règles métier indépendamment du framework Web et de tous les services externes (voir [test_courtier.py](../test/test_courtier.py)).
+Ça permet aussi  de tester entièrement les règles métier indépendamment du framework Web et de tous les services externes (voir [test_courtier.py](../test/test_courtier.py)).
